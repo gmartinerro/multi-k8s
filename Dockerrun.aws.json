@@ -16,7 +16,7 @@
             "memory": 128
         },
         {
-            "name": "client",
+            "name": "worker",
             "image": "gmartinerro/multi-worker",
             "hostname": "worker",
             "essential": false,
