@@ -13,7 +13,7 @@ class App extends Component {
         <BrowserRouter>
           <header className='App-header'>
           <img src={logo} className='App-logo' alt='logo'/>
-          <h1 className='App-title'>Cliente de Fibonacci</h1>
+          <h1 className='App-title'>Fibonacci calculator</h1>
           <Link className='App-link' to='/'>Home</Link>
           <Link className='App-link' to='/otherpage'>Other Page</Link>
           </header>
