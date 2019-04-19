@@ -33,11 +33,6 @@ pgClient.on('error',()=>{console.log("Lost PG connection")});
 pgClient.query('CREATE TABLE IF NOT EXISTS values(number INT)')
         .catch((err)=>console.log(err));
 
-
-app.get('/',(req,res)=>{
-    res.send("Hi")
-});
-
 app.get('/values/all',async (req,res)=>{
     const values = await pgClient.query('SELECT * from values');
     res.send(values.rows);
