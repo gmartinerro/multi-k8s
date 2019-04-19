@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: api-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       component: api
@@ -14,6 +14,24 @@ spec:
     spec:
       containers:
         - name: api
-          image: gmartinerro/multi-api
+          image: gmartinerro/multi-api:v7
           ports:
             - containerPort: 5000
+          env:
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: "6379"
+            - name: PGHOST
+              value: postgres-cluster-ip-service
+            - name: PGPORT
+              value: "5432"
+            - name: PGUSER
+              value: postgres
+            - name: PGDATABASE
+              value: postgres
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PGPASSWORD
